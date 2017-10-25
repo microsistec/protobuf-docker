@@ -12,4 +12,7 @@ RUN apt-get update \
     && make install \
     && cd /build/third_party/protobuf \
     && make \
-    && make install
+    && make install \
+    && apt-get remove --assume-yes build-essential autoconf libtool libgflags-dev libgtest-dev clang libc++-dev git curl \
+    && apt-get autoremove --assume-yes \
+    && rm -Rfv /build
